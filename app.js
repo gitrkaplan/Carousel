@@ -12,7 +12,7 @@ MongoClient.connect(url, (err, db) => {
 
   app.get('/carousel/images', (req, res) => {
     images
-      .find()
+      .find({}, { _id: 0 })
       .toArray()
       .then(list => res.json(list))
       .catch(err => {
